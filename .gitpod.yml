@@ -8,6 +8,8 @@ tasks:
 vscode:
   extensions:
     - ms-azuretools.vscode-docker@1.8.1:xuHtLS23Q5czFwYH7grcCQ==
+    - editorconfig.editorconfig
+    - arcticicestudio.nord-visual-studio-code
 
 github:
   prebuilds:
