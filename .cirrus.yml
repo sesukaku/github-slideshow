@@ -1,12 +1,15 @@
-macos_instance:
-  image: big-sur-xcode-12.4
+container:
+  image: "registry.gitlab.com/tigefa/ffmpeg"
+  cpu: 8
+  memory: 16
 
-task:
+ffmpeg_task:
   timeout_in: 120m
-  script:
-#    - brew update --force
-#    - brew list --formula
-    - brew install ffmpeg aria2
+  requirements_script:
+    - apt-get update
+    - apt-get dist-upgrade -yqq
+    - apt-get install -yqq sudo lsb-base lsb-release apt-transport-https ca-certificates software-properties-common wget curl netcat aria2 whois figlet p7zip p7zip-full zip unzip
+    - apt-get install -yqq wget aria2 ffmpeg telnet tree
   downloading_script:
     - "aria2c --check-certificate=false --min-split-size=100M --max-concurrent-downloads=16 --max-connection-per-server=16 https://www.dropbox.com/s/dl/f613xg2tugfq2cb/River.Where.the.Moon.Rises.E37-E38.210419.720p-NEXT.mp4"
   rendering_script:
