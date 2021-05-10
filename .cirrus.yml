@@ -8,9 +8,9 @@ task:
 #    - brew list --formula
     - brew install ffmpeg aria2
   downloading_script:
-    - "aria2c --check-certificate=false --min-split-size=100M --max-concurrent-downloads=16 --max-connection-per-server=16 https://www.dropbox.com/s/dl/4e5ktqv4yxx8qt3/No.Game.No.Life.Zero.2017.720p.BluRay.x264.mkv"
+    - "aria2c --check-certificate=false --min-split-size=100M --max-concurrent-downloads=16 --max-connection-per-server=16 https://www.dropbox.com/s/dl/p0euhvc8s3n9hql/Running.Man.E554.210509.720p-NEXT.mp4"
   rendering_script:
-    - ffmpeg -i "No.Game.No.Life.Zero.2017.720p.BluRay.x264.mkv" -threads 16 -c:v libx265 -c:a copy -metadata title="No Game No Life Zero 2017" -preset veryfast -pix_fmt yuv420p10le -s 1280x720 No.Game.No.Life.Zero.2017.720p.BluRay.x265.mkv
+    - ffmpeg -i "Running.Man.E554.210509.720p-NEXT.mp4" -threads 16 -c:v libx265 -c:a copy -metadata title="Running Man Episode 554" -preset veryfast -pix_fmt yuv420p10le -s 1280x720 554.mkv
     - ls -hal
   binaries_artifacts:
-    path: "No.Game.No.Life.Zero.2017.720p.BluRay.x265.mkv"
+    path: "554.mkv"
